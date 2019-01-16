@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<metainfo>
+  <schemaVersion>2.0</schemaVersion>
+  <services>
+    <service>
+      <name>GRAFANA</name>
+      <displayName>Grafana</displayName>
+      <comment>Grafana2.1</comment>
+      <version>0.1.1</version>
+      <components>
+        <component>
+          <name>Grafana</name>
+          <displayName>Grafana</displayName>
+          <category>MASTER</category>
+          <cardinality>1+</cardinality>
+          <dependencies>
+          </dependencies>
+          <commandScript>
+            <script>scripts/grafana_service.py</script>
+            <scriptType>PYTHON</scriptType>
+            <timeout>600</timeout>
+          </commandScript>
+        </component>
+      </components>
+
+      <osSpecifics>
+        <osSpecific>
+          <osFamily>any</osFamily>
+          <packages>
+            <package>
+              <name>grafana</name>
+            </package>
+          </packages>
+        </osSpecific>
+      </osSpecifics>
+
+      <commandScript>
+        <script>scripts/service_check.py</script>
+        <scriptType>PYTHON</scriptType>
+        <timeout>300</timeout>
+      </commandScript>
+      
+      <configuration-dependencies>
+        <config-type>grafana-env</config-type>
+        <config-type>grafana-conf</config-type>
+        <config-type>grafana-auth</config-type>
+        <config-type>grafana-ldap</config-type>
+      </configuration-dependencies>
+    </service>
+  </services>
+</metainfo>

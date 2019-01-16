@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+    <property>
+        <name>verbose_logging</name>
+        <value>true</value>
+        <description>Set to true to log user information returned from LDAP</description>
+    </property>
+    <property>
+        <name>ldap_host</name>
+        <value>ds.symcpe.net</value>
+        <description>Ldap server host</description>
+    </property>
+    <property>
+        <name>ldap_port</name>
+        <value>636</value>
+        <description>Default port is 389 or 636 if use_ssl = true</description>
+    </property>
+    <property>
+        <name>use_ssl</name>
+        <value>true</value>
+        <description>Set to true if ldap server supports TLS</description>
+    </property>
+    <property>
+        <name>ssl_skip_verify</name>
+        <value>false</value>
+        <description>set to true if you want to skip ssl cert validation</description>
+    </property>
+    <property>
+        <name>bind_dn</name>
+        <value>uid=%s,ou=People,dc=mgmt,dc=symcpe,dc=net</value>
+        <description>Search user bind dn</description>
+    </property>
+    <property>
+        <name>search_filter</name>
+        <value>(uid=%s)</value>
+        <description>Search filter, for example "(cn=%s)" or "(sAMAccountName=%s)"</description>
+    </property>
+    <property>
+        <name>search_base_dns</name>
+        <value>["dc=mgmt, dc=symcpe, dc=net"]</value>
+        <description>An array of base dns to search through</description>
+    </property>
+    <property>
+        <name>server_attributes</name>
+        <value>
+[servers.attributes]
+name = "givenName"
+surname = "sn"
+username = "cn"
+member_of="memberOf"
+email =  "mail"
+        </value>
+    </property>
+    <property>
+        <name>servers_group_mappings</name>
+        <value>
+# Map ldap groups to grafana org roles
+[[servers.group_mappings]]
+group_dn = "cn=lmm.lnx.adm,ou=lmm,ou=cpe,ou=groups,dc=mgmt,dc=symcpe,dc=net"
+org_role = "Admin"
+# The Grafana organization database id, optional, if left out the default org (id 1) will be used
+# org_id = 1
+
+[[servers.group_mappings]]
+# If you want to match all (or no ldap groups) then you can use wildcard
+group_dn = "*"
+org_role = "Editor"
+        </value>
+    </property>
+</configuration>

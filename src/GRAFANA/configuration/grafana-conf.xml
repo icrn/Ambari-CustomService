@@ -1,0 +1,273 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+    <property>
+        <name>app_mode</name>
+        <value>production</value>
+    </property>
+    <property>
+        <name>data</name>
+        <value>/var/lib/grafana</value>
+        <description>Path to where grafana can store temp files, sessions, and the sqlite3 db (if that is used)</description>
+    </property>
+    <property>
+        <name>logs</name>
+        <value>/var/log/grafana</value>
+        <description>Directory where grafana can store logs</description>
+    </property>
+    <property>
+        <name>protocol</name>
+        <value>http</value>
+        <description>http or https</description>
+    </property>
+    <property>
+        <name>http_addr</name>
+        <value> </value>
+        <description>The ip address to bind to, empty will bind to all interfaces</description>
+    </property>
+    <property>
+        <name>http_port</name>
+        <value>3000</value>
+        <description>The http port  to use</description>
+    </property>
+    <property>
+        <name>domain</name>
+        <value>localhost</value>
+        <description>The public facing domain name used to access grafana from a browser</description>
+    </property>
+    <property>
+        <name>enforce_domain</name>
+        <value>false</value>
+        <description>Redirect to correct domain if host header does not match domain</description>
+    </property>
+    <property>
+        <name>root_url</name>
+        <value>%(protocol)s://%(domain)s:%(http_port)s/</value>
+        <description>The full public facing url</description>
+    </property>
+    <property>
+        <name>router_logging</name>
+        <value>false</value>
+        <description>Log web requests</description>
+    </property>
+    <property>
+        <name>static_root_path</name>
+        <value>public</value>
+        <description>the path relative working path</description>
+    </property>
+    <property>
+        <name>enable_gzip</name>
+        <value>false</value>
+        <description>enable gzip</description>
+    </property>
+    <property>
+        <name>cert_file</name>
+        <value> </value>
+        <description></description>
+    </property>
+    <property>
+        <name>cert_key</name>
+        <value> </value>
+        <description></description>
+    </property>
+    <property>
+        <name>database_type</name>
+        <value>sqlite3</value>
+    </property>
+    <property>
+        <name>database_host</name>
+        <value>127.0.0.1:3306</value>
+    </property>
+    <property>
+        <name>database_name</name>
+        <value>grafana</value>
+    </property>
+    <property>
+        <name>database_user</name>
+        <value>root</value>
+    </property>
+    <property>
+        <name>database_password</name>
+        <value> </value>
+    </property>
+    <property>
+        <name>database_path</name>
+        <value>grafana.db</value>
+        <description>For "sqlite3" only, path relative to data_path setting</description>
+    </property>
+    <property>
+        <name>database_ssl_mode</name>
+        <value>disable</value>
+        <description>For "postgres" only, either "disable", "require" or "verify-full"</description>
+    </property>
+    <property>
+        <name>provider</name>
+        <value>file</value>
+    </property>
+    <property>
+        <name>provider_config</name>
+        <value>sessions</value>
+    </property>
+    <property>
+        <name>cookie_name</name>
+        <value>grafana_sess</value>
+    </property>
+    <property>
+        <name>cookie_secure</name>
+        <value>false</value>
+    </property>
+    <property>
+        <name>session_life_time</name>
+        <value>86400</value>
+    </property>
+    <property>
+        <name>reporting_enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>google_analytics_ua_id</name>
+        <value> </value>
+    </property>
+    <property>
+        <name>admin_user</name>
+        <value>admin</value>
+        <description></description>
+    </property>
+    <property>
+        <name>admin_password</name>
+        <value>admin</value>
+    </property>
+    <property>
+        <name>secret_key</name>
+        <value>SW2YcwTIb9zpOOhoPsMm</value>
+    </property>
+    <property>
+        <name>login_remember_days</name>
+        <value>7</value>
+    </property>
+    <property>
+        <name>cookie_username</name>
+        <value>grafana_user</value>
+    </property>
+    <property>
+        <name>cookie_remember_name</name>
+        <value>grafana_remember</value>
+    </property>
+    <property>
+        <name>disable_gravatar</name>
+        <value>false</value>
+        <description>disable gravatar profile images</description>
+    </property>
+    <property>
+        <name>allow_sign_up</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>allow_org_create</name>
+        <value>false</value>
+    </property>
+    <property>
+        <name>auto_assign_org</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>auto_assign_org_role</name>
+        <value>viewer</value>
+    </property>
+    <property>
+        <name>smtp_enabled</name>
+        <value>false</value>
+    </property>
+    <property>
+        <name>smtp_host</name>
+        <value>localhost:25</value>
+    </property>
+    <property>
+        <name>smtp_user</name>
+        <value> </value>
+    </property>
+    <property>
+        <name>smtp_password</name>
+        <value> </value>
+    </property>
+    <property>
+        <name>smtp_cert_file</name>
+        <value> </value>
+    </property>
+    <property>
+        <name>smtp_key_file</name>
+        <value> </value>
+    </property>
+    <property>
+        <name>smtp_skip_verify</name>
+        <value>false</value>
+    </property>
+    <property>
+        <name>smtp_from_address</name>
+        <value>admin@grafana.localhost</value>
+    </property>
+    <property>
+        <name>welcome_email_on_sign_up</name>
+        <value>false</value>
+    </property>
+    <property>
+        <name>mode</name>
+        <value>console, file</value>
+    </property>
+    <property>
+        <name>buffer_len</name>
+        <value>10000</value>
+    </property>
+    <property>
+        <name>level</name>
+        <value>Info</value>
+    </property>
+    <property>
+        <name>log_console_level</name>
+        <value>Info</value>
+    </property>
+    <property>
+        <name>log_file_level</name>
+        <value>Info</value>
+    </property>
+    <property>
+        <name>log_rotate</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>max_lines</name>
+        <value>1000000</value>
+    </property>
+    <property>
+        <name>max_lines_shift</name>
+        <value>28</value>
+    </property>
+    <property>
+        <name>daily_rotate</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>max_days</name>
+        <value>7</value>
+    </property>
+    <property>
+        <name>event_publisher_enabled</name>
+        <value>false</value>
+    </property>
+    <property>
+        <name>event_publisher_url</name>
+        <value>amqp://localhost/</value>
+    </property>
+    <property>
+        <name>event_publisher_exchange</name>
+        <value>grafana_events</value>
+    </property>
+    <property>
+        <name>dashboards_json_enabled</name>
+        <value>false</value>
+    </property>
+    <property>
+        <name>dashboards_json_path</name>
+        <value>/var/lib/grafana/dashboards</value>
+    </property>
+</configuration>

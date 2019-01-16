@@ -1,0 +1,246 @@
+##################### Grafana Configuration Example #####################
+#
+# Everything has defaults so you only need to uncomment things you want to
+# change
+
+app_mode = {{app_mode}}
+
+#################################### Paths ####################################
+[paths]
+# Path to where grafana can store temp files, sessions, and the sqlite3 db (if that is used)
+#
+data = {{data}}
+#
+# Directory where grafana can store logs
+#
+logs = {{logs}}
+
+#################################### Server ####################################
+[server]
+# Protocol (http or https)
+protocol = {{protocol}}
+
+# The ip address to bind to, empty will bind to all interfaces
+http_addr ={{http_addr}}
+
+# The http port  to use
+http_port = {{http_port}}
+
+# The public facing domain name used to access grafana from a browser
+domain = {{domain}}
+
+# Redirect to correct domain if host header does not match domain
+# Prevents DNS rebinding attacks
+enforce_domain = {{enforce_domain}}
+
+# The full public facing url
+root_url = {{root_url}}
+
+# Log web requests
+router_logging = {{router_logging}}
+
+# the path relative working path
+static_root_path = {{static_root_path}}
+
+# enable gzip
+enable_gzip = {{enable_gzip}}
+
+# https certs & key file
+cert_file ={{cert_file}}
+cert_key ={{cert_key}}
+
+#################################### Database ####################################
+[database]
+# Either "mysql", "postgres" or "sqlite3", it's your choice
+type = {{database_type}}
+host = {{database_host}}
+name = {{database_name}}
+user = {{database_user}}
+password = {{database_password}}
+
+# For "postgres" only, either "disable", "require" or "verify-full"
+ssl_mode = {{database_ssl_mode}}
+
+# For "sqlite3" only, path relative to data_path setting
+path = {{database_path}}
+
+#################################### Session ####################################
+[session]
+# Either "memory", "file", "redis", "mysql", "postgresql", default is "file"
+provider = {{provider}}
+
+# Provider config options
+# memory: not have any config yet
+# file: session dir path, is relative to grafana data_path
+# redis: config like redis server e.g. `addr=127.0.0.1:6379,pool_size=100,db=grafana`
+# mysql: go-sql-driver/mysql dsn config string, e.g. `user:password@tcp(127.0.0.1:3306)/database_name`
+# postgres: user=a password=b host=localhost port=5432 dbname=c sslmode=disable
+provider_config = {{provider_config}}
+
+# Session cookie name
+cookie_name = {{cookie_name}}
+
+# If you use session in https only, default is false
+cookie_secure = {{cookie_secure}}
+
+# Session life time, default is 86400
+session_life_time = {{session_life_time}}
+
+#################################### Analytics ####################################
+[analytics]
+# Server reporting, sends usage counters to stats.grafana.org every 24 hours.
+# No ip addresses are being tracked, only simple counters to track
+# running instances, dashboard and error counts. It is very helpful to us.
+# Change this option to false to disable reporting.
+reporting_enabled = {{reporting_enabled}}
+
+# Google Analytics universal tracking code, only enabled if you specify an id here
+google_analytics_ua_id = {{google_analytics_ua_id}}
+
+#################################### Security ####################################
+[security]
+# default admin user, created on startup
+admin_user = {{admin_user}}
+
+# default admin password, can be changed before first start of grafana,  or in profile settings
+admin_password = {{admin_password}}
+
+# used for signing
+secret_key = {{secret_key}}
+
+# Auto-login remember days
+login_remember_days = {{login_remember_days}}
+cookie_username = {{cookie_username}}
+cookie_remember_name = {{cookie_remember_name}}
+
+# disable gravatar profile images
+disable_gravatar = {{disable_gravatar}}
+
+#################################### Users ####################################
+[users]
+# disable user signup / registration
+allow_sign_up = {{allow_sign_up}}
+
+# Allow non admin users to create organizations
+allow_org_create = {{allow_org_create}}
+
+# Set to true to automatically assign new users to the default organization (id 1)
+auto_assign_org = {{auto_assign_org}}
+
+# Default role new users will be automatically assigned (if disabled above is set to true)
+auto_assign_org_role = {{auto_assign_org_role}}
+
+#################################### Anonymous Auth ##########################
+[auth.anonymous]
+# enable anonymous access
+enabled = {{auth_anonymous_enabled}}
+
+# specify organization name that should be used for unauthenticated users
+org_name = {{auth_anonymous_org_name}}
+
+# specify role for unauthenticated users
+org_role = {{auth_anonymous_org_role}}
+
+#################################### Github Auth ##########################
+[auth.github]
+enabled = {{auth_github_enabled}}
+allow_sign_up = {{auth_github_allow_sign_up}}
+client_id = {{auth_github_client_id}}
+client_secret = {{auth_github_client_secret}}
+scopes = {{auth_github_scopes}}
+auth_url = {{auth_github_auth_url}}
+token_url = {{auth_github_token_url}}
+api_url = {{auth_github_api_url}}
+team_ids = {{auth_github_team_ids}}
+allowed_domains = {{auth_github_allowed_domains}}
+allowed_organizations = {{auth_github_allowed_organizations}}
+
+#################################### Google Auth ##########################
+[auth.google]
+enabled = {{auth_google_enabled}}
+allow_sign_up = {{auth_google_allow_sign_up}}
+client_id = {{auth_google_client_id}}
+client_secret = {{auth_google_client_secret}}
+scopes = {{auth_google_scopes}}
+auth_url = {{auth_google_auth_url}}
+token_url = {{auth_google_token_url}}
+api_url = {{auth_google_api_url}}
+allowed_domains = {{auth_google_allowed_domains}}
+
+#################################### Auth Proxy ##########################
+[auth.proxy]
+enabled = {{auth_proxy_enabled}}
+header_name = {{auth_proxy_header_name}}
+header_property = {{auth_proxy_header_property}}
+auto_sign_up = {{auth_proxy_auto_sign_up}}
+
+#################################### Basic Auth ##########################
+[auth.basic]
+enabled = {{auth_basic_enabled}}
+
+#################################### Auth LDAP ##########################
+[auth.ldap]
+enabled = {{auth_ldap_enabled}}
+config_file = {{auth_ldap_config_file}}
+
+#################################### SMTP / Emailing ##########################
+[smtp]
+enabled = {{smtp_enabled}}
+host = {{smtp_host}}
+user = {{smtp_user}}
+password = {{smtp_password}}
+cert_file = {{smtp_cert_file}}
+key_file = {{smtp_key_file}}
+skip_verify = {{smtp_skip_verify}}
+from_address = {{smtp_from_address}}
+
+[emails]
+welcome_email_on_sign_up = {{welcome_email_on_sign_up}}
+
+#################################### Logging ##########################
+[log]
+# Either "console", "file", default is "console"
+# Use comma to separate multiple modes, e.g. "console, file"
+mode = {{mode}}
+
+# Buffer length of channel, keep it as it is if you don't know what it is.
+buffer_len = {{buffer_len}}
+
+# Either "Trace", "Debug", "Info", "Warn", "Error", "Critical", default is "Trace"
+level = {{level}}
+
+# For "console" mode only
+[log.console]
+level = {{log_console_level}}
+
+# For "file" mode only
+[log.file]
+level = {{log_file_level}}
+# This enables automated log rotate(switch of following options), default is true
+log_rotate = {{log_rotate}}
+
+# Max line number of single file, default is 1000000
+max_lines = {{max_lines}}
+
+# Max size shift of single file, default is 28 means 1 << 28, 256MB
+max_lines_shift = {{max_lines_shift}}
+
+# Segment log daily, default is true
+daily_rotate = {{daily_rotate}}
+
+# Expired days of log file(delete after max days), default is 7
+max_days = {{max_days}}
+
+#################################### AMPQ Event Publisher ##########################
+[event_publisher]
+enabled = {{event_publisher_enabled}}
+rabbitmq_url = {{event_publisher_url}}
+exchange = {{event_publisher_exchange}}
+
+;#################################### Dashboard JSON files ##########################
+[dashboards.json]
+enabled = {{dashboards_json_enabled}}
+path = {{dashboards_json_path}}
+
+
+
