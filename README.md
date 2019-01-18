@@ -8,4 +8,6 @@
 详细参看 https://cwiki.apache.org/confluence/display/AMBARI/Defining+a+Custom+Service
 
 ### ambari自定义增加kibana
-安装同上，但是kibana相对来说配置会复杂一点
+安装同上，但是kibana相对来说配置会复杂一点,建议安装kibana6.5以上版本，默认安装了x-pack安装会简单很多
+
+### ambari自定义增加logstash
