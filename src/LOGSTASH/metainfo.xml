@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<metainfo>
+    <schemaVersion>2.0</schemaVersion>
+    <services>
+        <service>
+            <name>LOGSTASH</name>
+            <displayName>LOGSTASH</displayName>
+            <comment>Logstash is a server-side data processing pipeline that ingests data from a multitude of sources simultaneously</comment>
+            <version>6.3.22</version>
+            <components>
+                <component>
+                    <name>LOGSTASH-tx_MASTER</name>
+                    <displayName>Logstash</displayName>
+                    <category>MASTER</category>
+                    <cardinality>1+</cardinality>
+                    <commandScript>
+                        <script>scripts/master.py</script>
+                        <scriptType>PYTHON</scriptType>
+                        <timeout>600</timeout>
+                    </commandScript>
+                </component>
+            </components>
+		<osSpecifics>
+                <osSpecific>
+                    <osFamily>any</osFamily>
+                    <packages>
+                        <package>
+                            <name>logstash</name>
+                        </package>
+                    </packages>
+                </osSpecific>
+            </osSpecifics>
+        </service>
+    </services>
+</metainfo>
